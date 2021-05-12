@@ -5,5 +5,6 @@ Rails.application.routes.draw do
   root to: redirect('/tweets')
   get 'my_tweets', to: 'users#my_tweets'
   get 'my_friends', to: 'users#my_friends'
+  resources :friendships, only: [:create, :destroy]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
