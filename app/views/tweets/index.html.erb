@@ -3,9 +3,10 @@
 <% @tweets.in_groups_of(1) do |group| %>
   <div class="row">
     <% group.compact.each do |tweet| %>
-      <div class="col-md-4">
-        <%= image_tag tweet.picture_url, width: '50%' if tweet.picture.present? %>
-        <%= link_to tweet.content, tweet %>
+          <div class="col-md-4">
+            <%= image_tag tweet.picture_url, width: '50%' if tweet.picture.present? %>
+            <%= link_to tweet.content, tweet %>
+          </div>
       </div>
-  </div>
+    <% end %>
 <% end %>
