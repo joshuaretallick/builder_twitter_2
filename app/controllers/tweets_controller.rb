@@ -7,7 +7,9 @@ class TweetsController < ApplicationController
   end
 
   # GET /tweets/1 or /tweets/1.json
-  def show
+  def show    
+    @comments = @idea.comments.all
+    @comment = @idea.comments.build
   end
 
   # GET /tweets/new

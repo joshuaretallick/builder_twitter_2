@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_12_102642) do
+ActiveRecord::Schema.define(version: 2021_05_12_110046) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "tweet_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "tweets", force: :cascade do |t|
     t.text "content"
