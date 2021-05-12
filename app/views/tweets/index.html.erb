@@ -1,29 +1,11 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Tweets</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Content</th>
-      <th>Picture</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tweets.each do |tweet| %>
-      <tr>
-        <td><%= tweet.content %></td>
-        <td><%= image_tag tweet.picture_url, width: '100%' if tweet.picture.present? %></td>
-        <td><%= link_to 'Show', tweet %></td>
-        <td><%= link_to 'Edit', edit_tweet_path(tweet) %></td>
-        <td><%= link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Tweet', new_tweet_path %>
+<% @tweets.in_groups_of(1) do |group| %>
+  <div class="row">
+    <% group.compact.each do |tweet| %>
+      <div class="col-md-4">
+        <%= image_tag tweet.picture_url, width: '50%' if tweet.picture.present? %>
+        <%= link_to tweet.content, tweet %>
+      </div>
+  </div>
+<% end %>
