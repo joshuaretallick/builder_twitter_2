@@ -7,7 +7,7 @@
 
 <p>
   <strong>Picture:</strong>
-  <%= @tweet.picture %>
+  <%= image_tag(@tweet.picture_url, width: 600) if @tweet.picture.present? %>
 </p>
 
 <%= link_to 'Edit', edit_tweet_path(@tweet) %> |
