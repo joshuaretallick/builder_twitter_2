@@ -1,0 +1,12 @@
+<h1>Users</h1>
+
+<% @users.in_groups_of(1) do |group| %>
+  <div class="row">
+    <% group.compact.each do |user| %>
+          <div class="col-md-4">
+              <%= user.name %>
+            <% end %>
+            <%= link_to "View Profile", user_path(@friends), class: "btn btn-sm btn-success" %>
+          </div>
+  </div>
+<% end %>
