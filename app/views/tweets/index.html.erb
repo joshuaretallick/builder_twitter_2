@@ -7,6 +7,7 @@
             <%= image_tag tweet.picture_url, width: '50%' if tweet.picture.present? %>
             <%= link_to tweet.content, tweet %>
             <%= render 'tweets/upvote_link', tweet: tweet %>
+            <%= render 'tweets/votes_score', tweet: tweet %>
             <% if tweet.user %>
                 by <%= tweet.user.name %>
             <% end %>

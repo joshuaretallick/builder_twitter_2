@@ -1,4 +1,4 @@
-class AddCachedLikesToTweets < ActiveRecord::Migration[6.1]
+class AddCachedVotesToTweets < ActiveRecord::Migration[6.1]
   def change
     change_table :tweets do |t|
       t.integer :cached_votes_total, default: 0
@@ -10,7 +10,7 @@ class AddCachedLikesToTweets < ActiveRecord::Migration[6.1]
       t.float :cached_weighted_average, default: 0.0
     end
 
-    # Uncomment this line to force caching of existing votes
-    # Post.find_each(&:update_cached_votes)
+  # Uncomment this line to force caching of existing votes
+  # Post.find_each(&:update_cached_votes)
   end
 end

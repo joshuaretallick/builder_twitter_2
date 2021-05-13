@@ -1,1 +1,2 @@
 document.getElementById("upvote-<%= @tweet.id %>").innerHTML = "<%= j render "tweets/upvote_link", tweet: @tweet %>";
+document.getElementById("votes-score-<%= @tweet.id %>").innerHTML = "<%= j render "tweets/votes_score", tweet: @tweet %>";
