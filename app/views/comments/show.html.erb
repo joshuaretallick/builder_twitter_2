@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Posted by:</strong>
+  <%= @comment.user.name %>
+</p>
+
+<p>
   <strong>Body:</strong>
   <%= @comment.body %>
 </p>

@@ -13,9 +13,6 @@
         <li class="nav-item">
           <%= link_to 'New Tweet', new_tweet_path, class: "nav-link" %>
         </li>
-        <li class="nav-item <%= 'active' if request.path == my_friends_path %>">
-            <%= link_to 'My Friends', my_friends_path, class: 'nav-link' %>
-        </li>
         <p class="navbar-text float-right">
           <% if user_signed_in? %>
             Logged in as <strong><%= current_user.name %></strong>.
