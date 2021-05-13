@@ -5,7 +5,8 @@
     <% group.compact.each do |tweet| %>
           <div class="col-md-4">
             <%= image_tag tweet.picture_url, width: '50%' if tweet.picture.present? %>
-            <%= link_to tweet.content, tweet %>
+            <a href="<%= tweet_path(tweet) %>">View Tweet</a>
+            <%= tweet.content %>
             <%= render 'tweets/upvote_link', tweet: tweet %>
             <%= render 'tweets/votes_score', tweet: tweet %>
             <% if tweet.user %>
