@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :comments
-  resources :tweets
+  resources :tweets do
+    member do
+      patch "upvote" => 'tweets#upvote'
+    end
+  end
   root to: redirect('/tweets')
   get 'my_tweets', to: 'users#my_tweets'
   resources :users, only: [:show, :index]

@@ -1,23 +1,25 @@
 <div class="row">
   <div class="col-md-9">
     <%= image_tag(@tweet.picture_url, width: '25%') if @tweet.picture.present? %>
-    <h3>Comments</h3>
-    <% @comments.each do |comment| %>
-      <div>
-        <strong><%= comment.user.name %></strong>
-        <br>
-        <p><%= comment.body %></p>
-        <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
-      </div>
-    <% end %>
-    <%= render partial: 'comments/form', locals: { comment: @comment } %>
-  </div>
-  <div class="col-md-3">
     <p><b>Content: </b><%= @tweet.content %></p>
     <p>
       <%= link_to 'Edit', edit_tweet_path(@tweet) %> |
       <%= link_to 'Destroy', @tweet, data: { confirm: 'Are you sure?' }, method: :delete %> |
       <%= link_to 'Back', tweets_path %>
     </p>
+    <h6>Comments</h6>
+    <% @comments.each do |comment| %>
+      <div>
+        <strong><%= comment.user.name %></strong>
+        <br>
+        <p><%= comment.body %></p>
+        <p><b>Commented <%= time_ago_in_words(comment.created_at) %> ago</b></p>
+        <p><%= link_to 'Delete', comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      </div>
+    <% end %>
+    <%= render partial: 'comments/form', locals: { comment: @comment } %>
+  </div>
+  <div class="col-md-3">
+
   </div>
 </div>

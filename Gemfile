@@ -10,6 +10,7 @@ gem 'sqlite3', '~> 1.4'
 gem 'carrierwave'
 gem 'devise'
 gem 'font-awesome-rails'
+gem 'acts_as_votable'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets

@@ -1,5 +1,6 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: %i[ show edit update destroy ]
+  respond_to :js, :json, :html
 
   # GET /tweets or /tweets.json
   def index
@@ -49,6 +50,16 @@ class TweetsController < ApplicationController
         format.json { render json: @tweet.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def upvote
+    @tweet = Tweet.find(params[:id])
+    if current_user.voted_up_on? @tweet
+      @tweet.unvote_by current_user
+    else
+      @tweet.upvote_by current_user
+    end
+    render "vote.js.erb"
   end
 
   # DELETE /tweets/1 or /tweets/1.json
