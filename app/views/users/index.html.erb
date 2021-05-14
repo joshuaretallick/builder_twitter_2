@@ -1,10 +1,17 @@
-<h1>Users</h1>
+<h2>Users</h2>
 
 <% @users.each do |user| %>
-
-    <% if user.name != current_user.name %>
-      <%=h user.name %>
-      <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
-    <% end %>
-
+  <div class="card card-header results-block">
+    <table class="col-md-12">
+      <tbody>
+        <tr>
+          <% if user.name != current_user.name %>
+            <td><strong>Name: </strong><%=h user.name %></td>
+            <td><strong>Email: </strong><%=h user.email %></td>
+            <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 <% end %>

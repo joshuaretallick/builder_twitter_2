@@ -1,4 +1,4 @@
-<h2>User Details</h2>
+<h2>Current User Details</h2>
 
 <div class="card card-header results-block">
   <table class="col-md-12">
@@ -14,7 +14,14 @@
 <h2>Friends</h2>
 
 <% @friends.each do |friend| %>
-  <div>
-    <strong><%= friend.name %></strong>
+  <div class="card card-header results-block">
+    <table class="col-md-12">
+      <tbody>
+        <tr>
+          <td><strong>Name: </strong> <%= friend.name %></td>
+          <td><strong>Email: </strong> <%= friend.email %></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 <% end %>
