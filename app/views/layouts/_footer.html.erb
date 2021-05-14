@@ -1,6 +1,12 @@
 <footer id="sticky-footer" class="py-4 bg-dark text-white">
+  <% if user_signed_in? %>
     <div class="container text-center">
     <a><%= link_to "Make Friends", users_path, class: "text-white" %></a> |
     <a><%= link_to "My Friends", { :controller => "users", :action => "show", :id => current_user }, class: "text-white" %></a>
     </div>
+  <% else %>
+    <div class="container text-center">
+      <small>Copyright &copy; <a><%= link_to "Joshua Retallick", "https://github.com/joshuaretallick/cv", class: "text-white" %></a></small>
+    </div>
+  <% end %>
 </footer>

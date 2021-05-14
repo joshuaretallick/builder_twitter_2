@@ -10,9 +10,17 @@
         <li class="nav-item active">
           <a class="nav-link" href="/tweets">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <%= link_to 'New Tweet', new_tweet_path, class: "nav-link" %>
         </li>
+        <% if user_signed_in? %>
+        <li class="nav-item active">
+          <%= link_to "My Friends", { :controller => "users", :action => "show", :id => current_user }, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "Make Friends", users_path, class: "nav-link" %>
+        </li>
+        <% end %>
         <p class="navbar-text float-right">
           <% if user_signed_in? %>
             Logged in as <strong><%= current_user.name %></strong>.

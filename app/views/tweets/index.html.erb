@@ -1,17 +1,25 @@
-<% @tweets.in_groups_of(1) do |group| %>
-  <div class="row">
-    <% group.compact.each do |tweet| %>
-          <div class="col-md-4">
-            <%= image_tag tweet.picture_url, width: '50%' if tweet.picture.present? %>
-            <a href="<%= tweet_path(tweet) %>">View Tweet</a>
-            <%= tweet.content %>
-            <%= render 'tweets/upvote_link', tweet: tweet %>
-            <%= render 'tweets/votes_score', tweet: tweet %>
-            <% if tweet.user %>
-                by <%= tweet.user.name %>
-            <% end %>
-            <small>Tweeted <%= time_ago_in_words(tweet.created_at) %> ago</small>
+<div class="container">
+    <% @tweets.each do |tweet| %>
+        <div class="row justify-content-md-center">
+            <div class="col-8 mt-4">
+                <div class="card text-center shadow mb-5 bg-white rounded">
+                    <div class="card-header">
+                        <% if tweet.user %>
+                            by <%= link_to tweet.user.name, user_path(tweet.user) %>
+                        <% end %>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-image"><%= image_tag tweet.picture_url, width: '50%' if tweet.picture.present? %></p>
+                        <p class="card-text"><%= truncate(tweet.content, length: 50) %></p>
+                        <%= link_to "View Tweet", tweet_path(tweet), class: "btn btn-outline-success" %>
+                        <%= render 'tweets/upvote_link', tweet: tweet %>
+                        <%= render 'tweets/votes_score', tweet: tweet %>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <small>Tweeted <%= time_ago_in_words(tweet.created_at) %> ago</small>
+                    </div>
+                </div>
             </div>
-      </div>
+        </div>
     <% end %>
-<% end %>
+</div>
