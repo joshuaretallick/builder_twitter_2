@@ -8,7 +8,11 @@
           <% if user.name != current_user.name %>
             <td><strong>Name: </strong><%=h user.name %></td>
             <td><strong>Email: </strong><%=h user.email %></td>
-            <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+            <% if current_user.not_friends_with?(user.id) %>
+              <%= link_to "Add Friend", friendships_path(:friend_id => user), :method => :post %>
+            <% else %>
+              You are friends
+            <% end %>
           <% end %>
         </tr>
       </tbody>
