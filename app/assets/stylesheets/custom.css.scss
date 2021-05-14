@@ -5,3 +5,25 @@
   flex-shrink: none;
   text-decoration: none;
 }
+
+#page-content {
+  flex: 1 0 auto;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+#logo {
+  float: left;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+#navbarSupportedContent {
+  margin-top: 15px
+}

@@ -1,14 +1,14 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <div class="container">
-    <a class="navbar-brand" href="/">Twitter</a>
+  <div class="container-fluid">
+    <%= link_to "Twitter", root_path, class: "navbar-brand", id: "logo" %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
         <li class="nav-item active">
-          <a class="nav-link" href="/tweets">Tweets</a>
+          <a class="nav-link" href="/tweets">Home</a>
         </li>
         <li class="nav-item">
           <%= link_to 'New Tweet', new_tweet_path, class: "nav-link" %>
@@ -16,7 +16,6 @@
         <p class="navbar-text float-right">
           <% if user_signed_in? %>
             Logged in as <strong><%= current_user.name %></strong>.
-            <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
             <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
           <% else %>
             <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
