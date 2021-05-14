@@ -1,2 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap';
 @import 'font-awesome';
+
+#sticky-footer a {
+  flex-shrink: none;
+  text-decoration: none;
+}
