@@ -12,6 +12,8 @@
                         <p class="card-image"><%= image_tag tweet.picture_url, width: '50%' if tweet.picture.present? %></p>
                         <p class="card-text"><%= truncate(tweet.content, length: 50) %></p>
                         <%= link_to "View Tweet", tweet_path(tweet), class: "btn btn-outline-success" %>
+                        <br>
+                        <br>
                         <%= render 'tweets/upvote_link', tweet: tweet %>
                         <%= render 'tweets/votes_score', tweet: tweet %>
                     </div>
